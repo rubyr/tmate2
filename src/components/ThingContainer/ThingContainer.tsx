@@ -5,24 +5,24 @@ import "./ThingContainer.css";
 
 interface Props {
   name: string;
-  id: number;
-  newArticle: (id: number) => void;
+  newArticle: () => void;
 }
 
 const ThingContainer = (props: Props) => {
   const [data, setData] = useState<Thing | undefined>();
 
+  const { name, newArticle } = props;
+
   useEffect(() => {
     setData(undefined);
     async function getInfo() {
-      if (!props.name) return;
-      const data = await getArticleInfo(props.name);
-      if (data.tags.some((tag) => tag.includes("disambiguation")))
-        props.newArticle(props.id);
+      if (!name) return;
+      const data = await getArticleInfo(name);
+      if (data.tags.some((tag) => tag.includes("disambiguation"))) newArticle();
       else setData(data);
     }
     getInfo();
-  }, [props.name]);
+  }, [name, newArticle]);
 
   if (data)
     return (
