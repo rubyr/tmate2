@@ -33,6 +33,7 @@ const ThingContainer = (props: Props) => {
         <a href={data.url.toString()} target="_blank" rel="noopener noreferrer">
           Read more
         </a>
+        <button onClick={props.newArticle}>Awesomer</button>
       </div>
     );
   else

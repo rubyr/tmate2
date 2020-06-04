@@ -1,53 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { getRandomArticles } from "../../apiCalls";
 import ThingContainer from "../ThingContainer/ThingContainer";
 
 function App() {
   const [names, setNames] = useState(["", ""]);
-  const history = useHistory();
 
   useEffect(() => {
     async function getArticles() {
-      if (history.location.pathname.length < 2) {
-        const articles = await getRandomArticles(2);
+      const articles = await getRandomArticles(2);
 
-        setNames(articles.map((s) => s.replace(" (disambiguation)", "")));
-      } else {
-        const articles = history.location.pathname.split("/");
-
-        if (articles.includes("game")) {
-          setNames(articles.filter((s) => s && !s.includes("game")));
-        }
-      }
+      setNames(articles.map((s) => s.replace(" (disambiguation)", "")));
     }
     getArticles();
-  }, [history]);
-
-  useEffect(() => {
-    history.push(`/game/${names[0]}/${names[1]}`);
-  }, [names, history]);
+  }, []);
 
   const newArticle = async (id: number) => {
-    let articles = await getRandomArticles(2);
+    let [article] = await getRandomArticles(1);
 
-    setNames(articles.map((s) => s.replace(" (disambiguation)", "")));
+    setNames(names.splice(id, 1, article));
   };
 
   return (
     <div className="App">
       <Switch>
         <Route
-          path="/game/:thing1/:thing2"
-          render={({ match }) => (
+          path="/game/"
+          render={() => (
             <div className="Things">
               <ThingContainer
-                name={match.params.thing1}
+                name={names[0]}
                 newArticle={() => newArticle(0)}
               />
               <ThingContainer
-                name={match.params.thing2}
+                name={names[1]}
                 newArticle={() => newArticle(1)}
               />
             </div>
