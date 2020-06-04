@@ -1,0 +1,27 @@
+.Thing-Container {
+  max-width: 300px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.Thing-Container img {
+  width: 90%;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px 0;
+  background: #000000;
+}
+
+.Thing-Container p {
+  text-align: center;
+}
+
+.Thing-Container a {
+  position: absolute;
+  bottom: 10px;
+}
