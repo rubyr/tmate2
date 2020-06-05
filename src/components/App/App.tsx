@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { getRandomArticles } from "../../apiCalls";
+import { getRandomArticles, getArticleInfo } from "../../apiCalls";
 import ThingContainer from "../ThingContainer/ThingContainer";
+import { Thing } from "../../types";
 
 function App() {
-  const [names, setNames] = useState(["", ""]);
+  const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
 
   useEffect(() => {
     async function getArticles() {
-      const articles = await getRandomArticles(2);
-
-      setNames(articles.map((s) => s.replace(" (disambiguation)", "")));
+      setArticleData([await newArticle(), await newArticle()]);
     }
     getArticles();
   }, []);
 
-  const newArticle = async (id: number) => {
+  const newArticle = async (): Promise<Thing> => {
     let [article] = await getRandomArticles(1);
 
-    setNames(names.splice(id, 1, article));
+    const data = await getArticleInfo(article);
+    if (
+      data.tags.some(
+        (tag) => tag.match(/disambiguation/gi) || tag.match(/list[s]*[of ]*/gi)
+      )
+    )
+      return newArticle();
+    else return data;
   };
 
   return (
@@ -30,12 +36,18 @@ function App() {
           render={() => (
             <div className="Things">
               <ThingContainer
-                name={names[0]}
-                newArticle={() => newArticle(0)}
+                data={articleData[0]}
+                newArticle={async () => {
+                  setArticleData([articleData[0], null]);
+                  setArticleData([articleData[0], await newArticle()]);
+                }}
               />
               <ThingContainer
-                name={names[1]}
-                newArticle={() => newArticle(1)}
+                data={articleData[1]}
+                newArticle={async () => {
+                  setArticleData([null, articleData[1]]);
+                  setArticleData([await newArticle(), articleData[1]]);
+                }}
               />
             </div>
           )}
