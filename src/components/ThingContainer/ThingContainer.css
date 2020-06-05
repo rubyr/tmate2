@@ -1,26 +1,42 @@
 .Thing-Container {
-  max-width: 300px;
+  width: 400px;
+  height: 500px;
   background: #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
   padding-bottom: 30px;
   position: relative;
 }
 
-.Thing-Container img {
+.Thing-Container img, .Thing-Container figure {
   width: 90%;
   height: 200px;
   object-fit: contain;
   margin: 10px 0;
 }
 
-.Thing-Container p {
-  text-align: center;
+.Thing-Container figure {
+  background: #aaa;
 }
 
-.Thing-Container a {
-  position: absolute;
-  bottom: 10px;
+.Thing-Container p {
+  text-align: center;
+  height: 100px;
+}
+
+.Thing-Container button {
+  background: #3a3;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  width: 90%;
+}
+
+.Thing-Container .explosion {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

@@ -1,0 +1,42 @@
+.Header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background: #333;
+}
+
+.Header a {
+  text-decoration: none;
+}
+
+.Header h1, .Header h3 {
+  transition: background .1s linear, color .1s linear;
+  height: 100%;
+  line-height: 43px;
+  padding: 5px 10px 5px 18px;
+  text-align: center;
+  --shadow-color: black;
+  text-shadow: -2px 1px 0 var(--shadow-color), -4px 2px 0 var(--shadow-color), -6px 3px 0 var(--shadow-color), -8px 4px 0 var(--shadow-color);
+}
+
+.Header h1 {
+  width: 180px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links * {
+  background: #37a9f0;
+  color: #de64de;
+}
+
+.nav-links *:visited {
+  color: #de64de;
+}
+
+.nav-active * {
+  color: #37a9f0 !important;
+  background: #de64de !important;
+}

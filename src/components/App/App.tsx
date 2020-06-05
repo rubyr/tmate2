@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { getRandomArticles, getArticleInfo } from "../../apiCalls";
 import ThingContainer from "../ThingContainer/ThingContainer";
 import { Thing } from "../../types";
+import Header from "../Header/Header";
 
 function App() {
   const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
@@ -21,7 +22,7 @@ function App() {
     const data = await getArticleInfo(article);
     if (
       data.tags.some(
-        (tag) => tag.match(/disambiguation/gi) || tag.match(/list[s]*[of ]*/gi)
+        (tag) => tag.match(/disambiguation/gi) || tag.match(/list(s)* (of)*/gi)
       )
     )
       return newArticle();
@@ -30,9 +31,11 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Switch>
+        <Route path="/stats"></Route>
         <Route
-          path="/game/"
+          path="/game"
           render={() => (
             <div className="Things">
               <ThingContainer

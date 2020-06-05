@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { getArticleInfo } from "../../apiCalls";
+import React from "react";
 import { Thing } from "../../types";
 import "./ThingContainer.css";
+import explosion from "./explosion.gif";
 
 interface Props {
   data: Thing | null;
@@ -15,7 +15,11 @@ const ThingContainer = (props: Props) => {
     return (
       <div className="Thing-Container">
         <h2>{name}</h2>
-        {img && <img src={img} alt={name} />}
+        {img ? (
+          <img src={img} alt={name} />
+        ) : (
+          <figure aria-label="no image"></figure>
+        )}
         <p>{description}</p>
         <a href={url.toString()} target="_blank" rel="noopener noreferrer">
           Read more
@@ -26,7 +30,14 @@ const ThingContainer = (props: Props) => {
   } else
     return (
       <div className="Thing-Container">
-        <p>Loading another cool thing...</p>
+        <img
+          className="explosion"
+          src={
+            explosion +
+            `?a=${Math.random()}` /* math.random makes it reload every time*/
+          }
+          alt="BIG OOF"
+        />
       </div>
     );
 };
