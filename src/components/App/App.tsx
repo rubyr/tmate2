@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <main className="App" role="main">
       <Header />
       <Switch>
         <Route path="/stats"></Route>
@@ -61,7 +61,7 @@ function App() {
           </h1>
         </Route>
       </Switch>
-    </div>
+    </main>
   );
 }
 
