@@ -5,3 +5,14 @@ export interface Thing {
   url: URL;
   tags: string[];
 }
+
+export interface Streak {
+  id: string;
+  length: number;
+}
+
+export interface Decision {
+  winnerId: string;
+  loserId: string;
+  time: number;
+}
