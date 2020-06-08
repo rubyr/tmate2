@@ -3,7 +3,7 @@ import "./FrontPage.css";
 
 const FrontPage = () => {
   return (
-    <main className="Front-Page">
+    <article className="Front-Page">
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div className="fp-title-bg">
           <h1 className="fp-title">THE MOST AWESOMEST THING EVER 2</h1>
@@ -30,7 +30,7 @@ const FrontPage = () => {
           matches can and will be esoteric and obscure. This is intentional.
         </p>
       </section>
-    </main>
+    </article>
   );
 };
 

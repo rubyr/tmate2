@@ -34,7 +34,7 @@ describe("App", () => {
     );
     await waitFor(() => expect(getByText("TMATE2")).toBeInTheDocument());
     await waitFor(() =>
-      expect(getByText(/THE MOST AWESOMEST THING EVER 2/gi)).toBeInTheDocument()
+      expect(getByText(/THE MOST AWESOMEST THING EVER 2/g)).toBeInTheDocument()
     );
   });
 

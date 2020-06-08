@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 import DataTracker from "../../DataTracker";
 import DataDisplay from "../DataDisplay/DataDisplay";
 import FrontPage from "../FrontPage/FrontPage";
+import GameBackground from "../GameBackground/GameBackground";
 
 function App() {
   const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
@@ -82,6 +83,7 @@ function App() {
           <FrontPage />
         </Route>
       </Switch>
+      <GameBackground />
     </main>
   );
 }

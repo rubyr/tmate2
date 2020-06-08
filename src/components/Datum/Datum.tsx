@@ -8,8 +8,8 @@ interface Props {
 const Datum = (props: Props) => {
   return (
     <tr className="Datum">
-      {props.children.map((n) => (
-        <td>{n}</td>
+      {props.children.map((n, i) => (
+        <td key={i}>{n}</td>
       ))}
     </tr>
   );

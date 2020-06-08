@@ -13,7 +13,7 @@ const DataDisplay = (props: Props) => {
   const streaks =
     longestStreaks.length &&
     longestStreaks.map((streak) => (
-      <Datum>
+      <Datum key={streak.id + streak.length}>
         <h4>{streak.id}</h4>
         <p>{streak.length}</p>
       </Datum>
@@ -22,7 +22,7 @@ const DataDisplay = (props: Props) => {
   const quickest =
     quickestDecisions.length &&
     quickestDecisions.map((decision) => (
-      <Datum>
+      <Datum key={decision.winnerId + decision.loserId + decision.time}>
         <h4>{decision.winnerId}</h4>
         <p>{decision.loserId}</p>
         <p>{decision.time / 1000} s</p>

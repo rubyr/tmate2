@@ -9,6 +9,7 @@
   padding: 10px;
   padding-bottom: 30px;
   position: relative;
+  border: 2px solid black;
 }
 
 .Thing-Container img, .Thing-Container figure {

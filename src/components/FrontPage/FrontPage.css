@@ -1,3 +1,7 @@
+.Front-Page {
+  background: whitesmoke;
+}
+
 .fp-title-bg {
   display: block;
   background: linear-gradient(15deg, #c42121, #d7ca3c, #1aac13, #213fc4, #c421b6);
