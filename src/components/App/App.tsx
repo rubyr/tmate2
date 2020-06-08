@@ -8,6 +8,7 @@ import Timer from "../../Timer";
 import Header from "../Header/Header";
 import DataTracker from "../../DataTracker";
 import DataDisplay from "../DataDisplay/DataDisplay";
+import FrontPage from "../FrontPage/FrontPage";
 
 function App() {
   const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
@@ -78,9 +79,7 @@ function App() {
           )}
         />
         <Route exact path="/">
-          <h1 style={{ textTransform: "uppercase" }}>
-            The Most Awesomest Thing Ever 2
-          </h1>
+          <FrontPage />
         </Route>
       </Switch>
     </main>
