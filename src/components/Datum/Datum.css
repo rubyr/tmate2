@@ -1,0 +1,11 @@
+.Datum {}
+
+.Datum>* {
+  border-right: 1px solid grey;
+  padding: 5px;
+  max-width: 250px;
+}
+
+.Datum>*:last-child {
+  border-right: none;
+}

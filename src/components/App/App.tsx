@@ -7,6 +7,7 @@ import { Thing } from "../../types";
 import Timer from "../../Timer";
 import Header from "../Header/Header";
 import DataTracker from "../../DataTracker";
+import DataDisplay from "../DataDisplay/DataDisplay";
 
 function App() {
   const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
@@ -58,7 +59,9 @@ function App() {
     <main className="App" role="main">
       <Header />
       <Switch>
-        <Route path="/stats"></Route>
+        <Route path="/stats">
+          <DataDisplay allData={data} />
+        </Route>
         <Route
           path="/game"
           render={() => (

@@ -1,0 +1,11 @@
+.Data-Table {
+  margin: 0 auto;
+}
+
+.Data-Table table {
+  border-collapse: collapse;
+}
+
+.Data-Table h2 {
+  text-align: center;
+}
