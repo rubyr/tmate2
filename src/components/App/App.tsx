@@ -83,7 +83,7 @@ function App() {
           )}
         />
       </Switch>
-      <GameBackground />
+      {typeof process === "undefined" && <GameBackground />}
     </main>
   );
 }

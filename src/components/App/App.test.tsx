@@ -26,21 +26,20 @@ describe("App", () => {
     await waitFor(() => expect(getByRole("main")).toBeInTheDocument());
   });
 
-  it("should have a header, and a description on the main page", async () => {
-    const { getByText } = render(
+  it("should have a header, and should load the game page", async () => {
+    const { getByText, getAllByText } = render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
     );
     await waitFor(() => expect(getByText("TMATE2")).toBeInTheDocument());
     await waitFor(() =>
-      expect(getByText(/THE MOST AWESOMEST THING EVER 2/g)).toBeInTheDocument()
+      expect(getAllByText("A huge pile of money")[0]).toBeInTheDocument()
     );
   });
 
   it("should load two articles on the game page", async () => {
     const history = createMemoryHistory();
-    history.push("/game");
     const { getAllByText } = render(
       <Router history={history}>
         <App />
@@ -54,7 +53,6 @@ describe("App", () => {
 
   it('should remove one article and load another when the other\'s "Awesomer" button is pressed', async () => {
     const history = createMemoryHistory();
-    history.push("/game");
     const { getAllByText } = render(
       <Router history={history}>
         <App />
@@ -66,6 +64,19 @@ describe("App", () => {
 
     await waitFor(() =>
       expect(getAllByText("A huge pile of money").length).toEqual(2)
+    );
+  });
+
+  it("should show the about page when url is equal to '/about'", async () => {
+    const history = createMemoryHistory();
+    history.push("/about");
+    const { getByText } = render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    await waitFor(() =>
+      expect(getByText(/THE MOST AWESOMEST THING EVER 2/g)).toBeInTheDocument()
     );
   });
 });

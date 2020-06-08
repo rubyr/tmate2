@@ -37,16 +37,16 @@ describe("Header", () => {
       </Router>
     );
 
-    const game = getByText(/play/gi);
-    expect(game).toBeInTheDocument();
-
-    fireEvent.click(game);
-    expect(history.location.pathname).toEqual("/game");
-
     const stats = getByText(/stats/gi);
     expect(stats).toBeInTheDocument();
 
     fireEvent.click(stats);
     expect(history.location.pathname).toEqual("/stats");
+
+    const about = getByText(/about/gi);
+    expect(about).toBeInTheDocument();
+
+    fireEvent.click(about);
+    expect(history.location.pathname).toEqual("/about");
   });
 });
