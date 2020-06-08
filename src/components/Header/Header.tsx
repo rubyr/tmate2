@@ -9,11 +9,11 @@ const Header = () => {
         <NavLink exact to="/" activeClassName="nav-active">
           <h1>TMATE2</h1>
         </NavLink>
-        <NavLink to="/game" activeClassName="nav-active">
-          <h3>PLAY</h3>
-        </NavLink>
         <NavLink to="/stats" activeClassName="nav-active">
           <h3>STATS</h3>
+        </NavLink>
+        <NavLink to="/about" activeClassName="nav-active">
+          <h3>ABOUT</h3>
         </NavLink>
       </div>
     </header>

@@ -1,15 +1,15 @@
 import React from "react";
-import "./FrontPage.css";
+import "./AboutPage.css";
 
-const FrontPage = () => {
+const AboutPage = () => {
   return (
-    <article className="Front-Page">
+    <article className="About-Page">
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <div className="fp-title-bg">
-          <h1 className="fp-title">THE MOST AWESOMEST THING EVER 2</h1>
+        <div className="ap-title-bg">
+          <h1 className="ap-title">THE MOST AWESOMEST THING EVER 2</h1>
         </div>
       </div>
-      <section className="fp-about">
+      <section className="ap-about">
         <h3>About</h3>
         <p>
           <a href="https://www.mostawesomestthingever.com/">
@@ -34,4 +34,4 @@ const FrontPage = () => {
   );
 };
 
-export default FrontPage;
+export default AboutPage;

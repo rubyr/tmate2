@@ -8,7 +8,7 @@ import Timer from "../../Timer";
 import Header from "../Header/Header";
 import DataTracker from "../../DataTracker";
 import DataDisplay from "../DataDisplay/DataDisplay";
-import FrontPage from "../FrontPage/FrontPage";
+import AboutPage from "../AboutPage/AboutPage";
 import GameBackground from "../GameBackground/GameBackground";
 
 function App() {
@@ -64,8 +64,11 @@ function App() {
         <Route path="/stats">
           <DataDisplay allData={data} />
         </Route>
+        <Route exact path="/about">
+          <AboutPage />
+        </Route>
         <Route
-          path="/game"
+          exactpath="/"
           render={() => (
             <div className="Things">
               <ThingContainer
@@ -79,9 +82,6 @@ function App() {
             </div>
           )}
         />
-        <Route exact path="/">
-          <FrontPage />
-        </Route>
       </Switch>
       <GameBackground />
     </main>

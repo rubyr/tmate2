@@ -1,20 +1,20 @@
-.Front-Page {
+.About-Page {
   background: whitesmoke;
 }
 
-.fp-title-bg {
+.ap-title-bg {
   display: block;
   background: linear-gradient(15deg, #c42121, #d7ca3c, #1aac13, #213fc4, #c421b6);
   margin: 10px;
 }
 
-.fp-title {
+.ap-title {
   color: black;
   background-color: white;
   mix-blend-mode: screen;
 }
 
-.fp-about {
+.ap-about {
   padding-top: 1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -22,7 +22,7 @@
   font-size: 1.1rem;
 }
 
-.fp-about br {
+.ap-about br {
   content: "";
   margin: 2rem;
   display: block;
