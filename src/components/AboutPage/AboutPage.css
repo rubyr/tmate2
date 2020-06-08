@@ -1,28 +1,18 @@
 .About-Page {
-  background: whitesmoke;
-}
-
-.ap-title-bg {
-  display: block;
-  background: linear-gradient(15deg, #c42121, #d7ca3c, #1aac13, #213fc4, #c421b6);
-  margin: 10px;
-}
-
-.ap-title {
-  color: black;
-  background-color: white;
-  mix-blend-mode: screen;
-}
-
-.ap-about {
   padding-top: 1rem;
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   line-height: 1.4rem;
   font-size: 1.1rem;
+  background: whitesmoke;
+  padding: 1rem;
 }
 
-.ap-about br {
+.About-Page h1 {
+  margin-bottom: 3rem;
+}
+
+.About-Page br {
   content: "";
   margin: 2rem;
   display: block;

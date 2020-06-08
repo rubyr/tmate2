@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+.App>*:nth-child(2) {
+  margin-top: 70px;
+}
+
 .Things {
   display: flex;
   justify-content: space-around;

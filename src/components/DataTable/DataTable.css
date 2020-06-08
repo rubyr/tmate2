@@ -1,7 +1,10 @@
 .Data-Table {
   margin: 0 auto;
-  background: #f5f5f5;
   padding: 20px;
+}
+
+.Data-Table * {
+  text-shadow: 0px 2px 2px white, 0px -2px 2px white, 2px 0px 2px white, -2px 0px 2px white, 2px 2px 2px white, 2px -2px 2px white, -2px 2px 2px white, -2px -2px 2px white;
 }
 
 .Data-Table table {
@@ -10,4 +13,8 @@
 
 .Data-Table h2 {
   text-align: center;
+}
+
+.Data-Table p {
+  font-size: 1.1rem;
 }

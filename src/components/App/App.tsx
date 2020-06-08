@@ -17,6 +17,17 @@ function App() {
   const [currentTime, setTimer] = useState<Timer>(new Timer());
 
   useEffect(() => {
+    const lsStats = localStorage.getItem("stat-data");
+    if (lsStats) {
+      setData(new DataTracker(JSON.parse(lsStats)));
+    }
+  }, [setData]);
+
+  useEffect(() => {
+    localStorage.setItem("stat-data", JSON.stringify(data));
+  }, [data]);
+
+  useEffect(() => {
     async function getArticles() {
       setArticleData([await newArticle(), await newArticle()]);
     }
@@ -83,7 +94,7 @@ function App() {
           )}
         />
       </Switch>
-      {typeof process === "undefined" && <GameBackground />}
+      {typeof jest === "undefined" && <GameBackground />}
     </main>
   );
 }

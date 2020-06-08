@@ -2,4 +2,9 @@
   position: fixed;
   top: 60px;
   z-index: -1000;
+  background: #aaa;
+}
+
+.Game-Background canvas {
+  mix-blend-mode: multiply;
 }

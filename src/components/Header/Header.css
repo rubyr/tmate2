@@ -3,6 +3,9 @@
   display: flex;
   justify-content: space-between;
   background: #37a9f0;
+  position: fixed;
+  width: 100vw;
+  top: 0;
 }
 
 .Header a {

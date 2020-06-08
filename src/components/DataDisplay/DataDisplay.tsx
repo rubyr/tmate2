@@ -29,14 +29,14 @@ const DataDisplay = (props: Props) => {
       </Datum>
     ));
   return (
-    <main role="main" className="Data-Display">
+    <article className="Data-Display">
       <DataTable title="Longest Streaks" cols={["Item", "Streak Length"]}>
         {streaks}
       </DataTable>
       <DataTable title="Quickest Decisions" cols={["Winner", "Loser", "Time"]}>
         {quickest}
       </DataTable>
-    </main>
+    </article>
   );
 };
 

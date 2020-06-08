@@ -1,8 +1,6 @@
-.Datum {}
-
 .Datum>* {
   border-right: 1px solid grey;
-  padding: 5px;
+  padding: 5px 10px;
   max-width: 250px;
 }
 
