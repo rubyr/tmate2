@@ -19,3 +19,5 @@ This app was made over the span of four days, and uses the entirety of the Engli
 This app would not have been made had it not been for [Khalid Williams](https://github.com/khalidwilliams), who kept my ideas grounded (although, not _all_ of them.) I'd also like to thank my mother, who listened to my ramblings about things she very much did not understand.
 
 ## Screenshots
+
+<img width="1435" alt="Screen Shot 2020-06-09 at 16 14 10" src="https://user-images.githubusercontent.com/23513486/84206543-96b73380-aa6c-11ea-8c22-761f55ba5f75.png">
