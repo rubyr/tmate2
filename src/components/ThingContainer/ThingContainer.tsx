@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Thing } from "../../types";
 import "./ThingContainer.css";
 import explosion from "./explosion.gif";
+import plus from "./plus.svg";
+import check from "./check.svg";
 
 interface Props {
   data: Thing | null;
   newArticle: () => void;
+  saveArticle: (id: string) => void;
 }
 
 const ThingContainer = (props: Props) => {
+  const [btnImg, setBtnImg] = useState(plus);
   if (props.data) {
     const { name, img, description, url } = props.data;
 
     return (
       <div className="Thing-Container">
+        <button
+          className="save-btn"
+          onClick={() => {
+            props.saveArticle(name);
+            setBtnImg(btnImg === plus ? check : plus);
+          }}
+        >
+          <img src={btnImg} alt="save" />
+          <p>save</p>
+        </button>
         <h2>{name}</h2>
         {img ? (
           <img src={img} alt={name} />

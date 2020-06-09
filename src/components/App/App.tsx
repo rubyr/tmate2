@@ -85,10 +85,12 @@ function App() {
               <ThingContainer
                 data={articleData[0]}
                 newArticle={() => thingWin(0)}
+                saveArticle={(id: string) => {}}
               />
               <ThingContainer
                 data={articleData[1]}
                 newArticle={() => thingWin(1)}
+                saveArticle={(id: string) => {}}
               />
             </div>
           )}
