@@ -6,6 +6,8 @@ class DataTracker {
 
   quickestDecisions: Decision[] = [];
 
+  saved: Thing[] = [];
+
   constructor(data?: DataTracker) {
     if (data) {
       this.currentStreak = { ...data.currentStreak };
@@ -36,6 +38,15 @@ class DataTracker {
       (a, b) => a.time - b.time
     );
     if (this.quickestDecisions.length > 10) this.quickestDecisions.pop();
+  }
+
+  saveThing(thing: Thing) {
+    const ind = this.saved.findIndex((t) => t.name === thing.name);
+    if (ind === -1) {
+      this.saved.unshift(thing);
+    } else {
+      this.saved.splice(ind, 1);
+    }
   }
 }
 

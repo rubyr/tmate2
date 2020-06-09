@@ -49,6 +49,7 @@ function App() {
   };
 
   const thingWin = async (id: number) => {
+    if (articleData.some((t) => !t)) return;
     const newData = new DataTracker(data);
     newData.updateStreak(articleData[id] as Thing);
     newData.addDecision({
@@ -85,7 +86,12 @@ function App() {
               <ThingContainer
                 data={articleData[0]}
                 newArticle={() => thingWin(0)}
-                saveArticle={(id: string) => {}}
+                saveArticle={(id: string) => {
+                  const thing = articleData.find(
+                    (thing: Thing | null) => thing && thing.name === id
+                  );
+                  if (thing) data.saveThing(thing);
+                }}
               />
               <ThingContainer
                 data={articleData[1]}
