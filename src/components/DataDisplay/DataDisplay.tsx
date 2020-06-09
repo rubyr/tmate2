@@ -3,6 +3,7 @@ import DataTracker from "../../DataTracker";
 import Datum from "../Datum/Datum";
 import "./DataDisplay.css";
 import DataTable from "../DataTable/DataTable";
+import { Bar } from "react-chartjs-2";
 
 interface Props {
   allData: DataTracker;
@@ -36,6 +37,36 @@ const DataDisplay = (props: Props) => {
       <DataTable title="Quickest Decisions" cols={["Winner", "Loser", "Time"]}>
         {quickest}
       </DataTable>
+      {longestStreaks.length && (
+        <div className="chartContainer">
+          <Bar
+            options={{
+              scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
+            }}
+            data={{
+              labels: longestStreaks.map((s) => s.id.slice(0, 20)),
+              datasets: [
+                {
+                  label: "Longest Streaks",
+                  backgroundColor: [
+                    "#dd332266",
+                    "#dd882266",
+                    "#dddd2266",
+                    "#88dd2266",
+                    "#33dd3366",
+                    "#22dd8866",
+                    "#22dddd66",
+                    "#2288dd66",
+                    "#2233dd66",
+                    "#2222dd66",
+                  ],
+                  data: longestStreaks.map((s) => s.length),
+                },
+              ],
+            }}
+          />
+        </div>
+      )}
     </article>
   );
 };
