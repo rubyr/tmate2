@@ -1,6 +1,8 @@
 .App {
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  top: 0;
 }
 
 .App>*:nth-child(2) {
@@ -12,5 +14,5 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 70px);
 }

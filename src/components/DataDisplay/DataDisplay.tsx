@@ -29,6 +29,42 @@ const DataDisplay = (props: Props) => {
         <p>{decision.time / 1000} s</p>
       </Datum>
     ));
+
+  const graph = (
+    <div className="chartContainer">
+      <Bar
+        options={{
+          title: {
+            display: true,
+            text: "Longest Streaks",
+          },
+          legend: false,
+          scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
+        }}
+        data={{
+          labels: longestStreaks.map((s) => s.id.slice(0, 21)),
+          datasets: [
+            {
+              label: "Longest Streak",
+              backgroundColor: [
+                "#dd332266",
+                "#dd882266",
+                "#dddd2266",
+                "#88dd2266",
+                "#33dd3366",
+                "#22dd8866",
+                "#22dddd66",
+                "#2288dd66",
+                "#2233dd66",
+                "#2222dd66",
+              ],
+              data: longestStreaks.map((s) => s.length),
+            },
+          ],
+        }}
+      />
+    </div>
+  );
   return (
     <article className="Data-Display">
       <DataTable title="Longest Streaks" cols={["Item", "Streak Length"]}>
@@ -37,36 +73,7 @@ const DataDisplay = (props: Props) => {
       <DataTable title="Quickest Decisions" cols={["Winner", "Loser", "Time"]}>
         {quickest}
       </DataTable>
-      {longestStreaks.length && (
-        <div className="chartContainer">
-          <Bar
-            options={{
-              scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
-            }}
-            data={{
-              labels: longestStreaks.map((s) => s.id.slice(0, 20)),
-              datasets: [
-                {
-                  label: "Longest Streaks",
-                  backgroundColor: [
-                    "#dd332266",
-                    "#dd882266",
-                    "#dddd2266",
-                    "#88dd2266",
-                    "#33dd3366",
-                    "#22dd8866",
-                    "#22dddd66",
-                    "#2288dd66",
-                    "#2233dd66",
-                    "#2222dd66",
-                  ],
-                  data: longestStreaks.map((s) => s.length),
-                },
-              ],
-            }}
-          />
-        </div>
-      )}
+      {longestStreaks.length && typeof jest !== "object" && graph}
     </article>
   );
 };
