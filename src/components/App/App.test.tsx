@@ -67,6 +67,24 @@ describe("App", () => {
     );
   });
 
+  it('should save articles when the "save" button is pressed', async () => {
+    const history = createMemoryHistory();
+    const { getAllByText } = render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    const button = await waitFor(() => getAllByText(/save/gi)[0]);
+    fireEvent.click(button);
+
+    history.push("/stats");
+
+    const allItems = await waitFor(() => getAllByText(/A huge pile of money/));
+
+    expect(allItems.length).toBe(3);
+    expect(allItems[2].tagName).toBe("A");
+  });
+
   it("should show the about page when url is equal to '/about'", async () => {
     const history = createMemoryHistory();
     history.push("/about");

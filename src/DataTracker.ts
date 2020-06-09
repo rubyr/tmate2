@@ -43,7 +43,7 @@ class DataTracker {
 
   saveThing(thing: Thing): boolean {
     if (!this.saved.find((s) => s.name === thing.name)) {
-      this.saved.push(thing);
+      this.saved.unshift(thing);
       return true;
     } else {
       this.saved = this.saved.filter((s) => s.name !== thing.name);

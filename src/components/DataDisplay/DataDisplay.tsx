@@ -78,7 +78,7 @@ const DataDisplay = (props: Props) => {
         <h2>Saved Items</h2>
         <ul>
           {saved.map((thing) => (
-            <li>
+            <li key={thing.name}>
               <a
                 href={thing.url.toString()}
                 target="_blank"
