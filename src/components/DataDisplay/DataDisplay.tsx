@@ -10,7 +10,7 @@ interface Props {
 }
 
 const DataDisplay = (props: Props) => {
-  const { longestStreaks, quickestDecisions } = props.allData;
+  const { longestStreaks, quickestDecisions, saved } = props.allData;
   const streaks =
     longestStreaks.length &&
     longestStreaks.map((streak) => (
@@ -74,6 +74,22 @@ const DataDisplay = (props: Props) => {
         {quickest}
       </DataTable>
       {longestStreaks.length && typeof jest !== "object" && graph}
+      <section className="saved-items">
+        <h2>Saved Items</h2>
+        <ul>
+          {saved.map((thing) => (
+            <li>
+              <a
+                href={thing.url.toString()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {thing.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
     </article>
   );
 };

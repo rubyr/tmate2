@@ -8,7 +8,7 @@ import check from "./check.svg";
 interface Props {
   data: Thing | null;
   newArticle: () => void;
-  saveArticle: (id: string) => void;
+  saveArticle: (id: string) => boolean;
 }
 
 const ThingContainer = (props: Props) => {
@@ -21,8 +21,7 @@ const ThingContainer = (props: Props) => {
         <button
           className="save-btn"
           onClick={() => {
-            props.saveArticle(name);
-            setBtnImg(btnImg === plus ? check : plus);
+            setBtnImg(props.saveArticle(name) ? check : plus);
           }}
         >
           <img src={btnImg} alt="save" />

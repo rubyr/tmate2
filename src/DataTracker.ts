@@ -13,6 +13,7 @@ class DataTracker {
       this.currentStreak = { ...data.currentStreak };
       this.longestStreaks = [...data.longestStreaks];
       this.quickestDecisions = [...data.quickestDecisions];
+      this.saved = [...data.saved];
     }
   }
 
@@ -40,12 +41,13 @@ class DataTracker {
     if (this.quickestDecisions.length > 10) this.quickestDecisions.pop();
   }
 
-  saveThing(thing: Thing) {
-    const ind = this.saved.findIndex((t) => t.name === thing.name);
-    if (ind === -1) {
-      this.saved.unshift(thing);
+  saveThing(thing: Thing): boolean {
+    if (!this.saved.find((s) => s.name === thing.name)) {
+      this.saved.push(thing);
+      return true;
     } else {
-      this.saved.splice(ind, 1);
+      this.saved = this.saved.filter((s) => s.name !== thing.name);
+      return false;
     }
   }
 }

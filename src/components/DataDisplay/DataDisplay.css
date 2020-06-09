@@ -12,6 +12,25 @@
 }
 
 .chartjs-render-monitor {
-  background: #fff;
+  width: 90% !important;
+  height: 90% !important;
+  background: #eee;
   border-radius: 1rem;
+  margin: 1rem;
+}
+
+.saved-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0px 2px 2px white, 0px -2px 2px white, 2px 0px 2px white, -2px 0px 2px white, 2px 2px 2px white, 2px -2px 2px white, -2px 2px 2px white, -2px -2px 2px white;
+}
+
+.saved-items ul {
+  list-style-type: none;
+}
+
+.saved-items ul * {
+  list-style-type: none;
+  margin: .2rem 0;
 }

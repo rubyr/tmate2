@@ -46,7 +46,7 @@ const GameBackground = () => {
         }
 
         // vertical
-        const inc = (width % 300) / 10;
+        const inc = Math.max((width % 300) / 10, 30);
         for (let x = 0; x < width; x += inc) {
           const x2 = (x - width / 2) * 2 + x;
           fadedLine(x, height / 2 + 2, x2, height, s.color(255));

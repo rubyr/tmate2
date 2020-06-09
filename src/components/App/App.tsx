@@ -69,6 +69,18 @@ function App() {
     setArticleData([...artData]);
   };
 
+  const saveArticle = (id: string): boolean => {
+    const thing = articleData.find(
+      (thing: Thing | null) => thing && thing.name === id
+    );
+    if (thing) {
+      const newData = new DataTracker(data);
+      const res = newData.saveThing(thing);
+      setData(newData);
+      return res;
+    } else return false;
+  };
+
   return (
     <main className="App" role="main">
       <Header />
@@ -86,17 +98,12 @@ function App() {
               <ThingContainer
                 data={articleData[0]}
                 newArticle={() => thingWin(0)}
-                saveArticle={(id: string) => {
-                  const thing = articleData.find(
-                    (thing: Thing | null) => thing && thing.name === id
-                  );
-                  if (thing) data.saveThing(thing);
-                }}
+                saveArticle={saveArticle}
               />
               <ThingContainer
                 data={articleData[1]}
                 newArticle={() => thingWin(1)}
-                saveArticle={(id: string) => {}}
+                saveArticle={saveArticle}
               />
             </div>
           )}

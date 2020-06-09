@@ -57,6 +57,10 @@
   padding: .2rem;
 }
 
+.Thing-Container .save-btn * {
+  pointer-events: none;
+}
+
 .Thing-Container .save-btn img {
   width: 1rem;
   height: 1rem;
