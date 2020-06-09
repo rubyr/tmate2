@@ -97,4 +97,15 @@ describe("App", () => {
       expect(getByText(/THE MOST AWESOMEST THING EVER 2/g)).toBeInTheDocument()
     );
   });
+
+  it("should show a 404 page if an invalid URL is given", async () => {
+    const history = createMemoryHistory();
+    history.push("/asdkjaslkdj");
+    const { getByText } = render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    await waitFor(() => expect(getByText(/404/g)).toBeInTheDocument());
+  });
 });

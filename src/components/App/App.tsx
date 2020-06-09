@@ -10,6 +10,7 @@ import DataTracker from "../../DataTracker";
 import DataDisplay from "../DataDisplay/DataDisplay";
 import AboutPage from "../AboutPage/AboutPage";
 import GameBackground from "../GameBackground/GameBackground";
+import Page404 from "../404/404";
 
 function App() {
   const [articleData, setArticleData] = useState<(Thing | null)[]>([]);
@@ -92,7 +93,8 @@ function App() {
           <AboutPage />
         </Route>
         <Route
-          exactpath="/"
+          exact
+          path="/"
           render={() => (
             <div className="Things">
               <ThingContainer
@@ -108,6 +110,7 @@ function App() {
             </div>
           )}
         />
+        <Route component={Page404} />
       </Switch>
       {typeof jest === "undefined" && <GameBackground />}
     </main>

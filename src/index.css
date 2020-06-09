@@ -11,3 +11,8 @@
 h1, h2, h3, h4, h5, h6, button {
   font-family: 'Audiowide', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.center-page {
+  display: flex;
+  justify-content: center;
+}

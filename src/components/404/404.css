@@ -1,0 +1,28 @@
+.Page-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.Page-404 h1 {
+  animation: flash-red 1s linear infinite alternate;
+}
+
+.Page-404 * {
+  margin-bottom: 1rem;
+}
+
+@keyframes flash-red {
+  0% {
+    color: black;
+  }
+  100% {
+    color: #e55;
+  }
+}
